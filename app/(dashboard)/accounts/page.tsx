@@ -10,12 +10,14 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { useNewAccount } from "@/features/accounts/hooks/use-new-account";
-import { Plus } from "lucide-react";
+import { Loader2, Plus } from "lucide-react";
 import { columns } from "./columns";
 import { DataTable } from "@/components/data-table";
 import { useGetAccounts } from "@/features/accounts/api/use-get-accounts";
 import { InferResponseType } from "hono";
 import { client } from "@/lib/hono";
+import { Skeleton } from "@/components/ui/skeleton";
+import { useBulkDeleteAccounts } from "@/features/accounts/api/use-bulk-delete";
 
 export type ResponseType = InferResponseType<
   typeof client.api.accounts.$get,
@@ -25,8 +27,26 @@ export default function AccountsPage() {
   const newAccount = useNewAccount();
   const accountsQuery = useGetAccounts();
   const accounts = accountsQuery.data || [];
-  console.log(accounts);
-  if (!accounts) return;
+  const deleteAccount = useBulkDeleteAccounts();
+  const isDisabled = accountsQuery.isLoading || deleteAccount.isPending;
+
+  if (accountsQuery.isLoading) {
+    return (
+      <div className="mx-auto -mt-24 w-full max-w-screen-2xl pb-10">
+        <Card className="border-none drop-shadow-sm">
+          <CardHeader>
+            <Skeleton className="h-8 w-[200px]" />
+          </CardHeader>
+          <CardContent>
+            <div className="flex h-[500px] w-full items-center justify-center">
+              <Loader2 className="size-6 animate-spin text-slate-600" />
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    );
+  }
+
   return (
     <div className="mx-auto -mt-24 w-full max-w-screen-2xl pb-10">
       <Card className="border-none drop-shadow-sm">
@@ -41,8 +61,11 @@ export default function AccountsPage() {
             columns={columns}
             data={accounts}
             filterKey="name"
-            onDelete={() => {}}
-            disabled={false}
+            onDelete={(row) => {
+              const ids = row.map((r) => r.original.id);
+              deleteAccount.mutate({ ids });
+            }}
+            disabled={isDisabled}
           />
         </CardContent>
       </Card>
