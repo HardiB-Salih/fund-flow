@@ -11,26 +11,22 @@ import {
 } from "@/components/ui/card";
 import { useNewAccount } from "@/features/accounts/hooks/use-new-account";
 import { Plus } from "lucide-react";
-import { columns, Payment } from "./columns";
+import { columns } from "./columns";
 import { DataTable } from "@/components/data-table";
+import { useGetAccounts } from "@/features/accounts/api/use-get-accounts";
+import { InferResponseType } from "hono";
+import { client } from "@/lib/hono";
 
-const data: Payment[] = [
-  {
-    id: "728ed52f",
-    amount: 100,
-    status: "success",
-    email: "m@example.com",
-  },
-  {
-    id: "728ed52fdfgh",
-    amount: 10,
-    status: "pending",
-    email: "d@example.com",
-  },
-];
-
+export type ResponseType = InferResponseType<
+  typeof client.api.accounts.$get,
+  200
+>;
 export default function AccountsPage() {
   const newAccount = useNewAccount();
+  const accountsQuery = useGetAccounts();
+  const accounts = accountsQuery.data || [];
+  console.log(accounts);
+  if (!accounts) return;
   return (
     <div className="mx-auto -mt-24 w-full max-w-screen-2xl pb-10">
       <Card className="border-none drop-shadow-sm">
@@ -43,8 +39,8 @@ export default function AccountsPage() {
         <CardContent>
           <DataTable
             columns={columns}
-            data={data}
-            filterKey="email"
+            data={accounts}
+            filterKey="name"
             onDelete={() => {}}
             disabled={false}
           />

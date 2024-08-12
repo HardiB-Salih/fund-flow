@@ -10,8 +10,8 @@ export const useGetAccounts = () => {
       if (!response.ok) {
         throw new Error("Faild tp fetch accounts");
       }
-
       const { data } = await response.json();
+      console.log(response);
       return data;
     },
   });
