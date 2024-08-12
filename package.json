@@ -30,6 +30,7 @@
     "class-variance-authority": "^0.7.0",
     "clerk-react": "^0.1.9",
     "clsx": "^2.1.1",
+    "date-fns": "^3.6.0",
     "drizzle-orm": "^0.33.0",
     "drizzle-zod": "^0.5.1",
     "firebase": "^10.12.5",

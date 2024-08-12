@@ -1,36 +1,23 @@
 "use client";
 
+import { DataTable } from "@/components/data-table";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { useNewAccount } from "@/features/accounts/hooks/use-new-account";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Skeleton } from "@/components/ui/skeleton";
+import { useBulkDeleteCategories } from "@/features/categories/api/use-bulk-delete-categories";
+import { useGetCategories } from "@/features/categories/api/use-get-categories";
+import { useNewCategory } from "@/features/categories/hooks/use-new-category";
 import { Loader2, Plus } from "lucide-react";
 import { columns } from "./columns";
-import { DataTable } from "@/components/data-table";
-import { useGetAccounts } from "@/features/accounts/api/use-get-accounts";
-import { InferResponseType } from "hono";
-import { client } from "@/lib/hono";
-import { Skeleton } from "@/components/ui/skeleton";
-import { useBulkDeleteAccounts } from "@/features/accounts/api/use-bulk-delete-accounts";
 
-export type ResponseType = InferResponseType<
-  typeof client.api.accounts.$get,
-  200
->;
-export default function AccountsPage() {
-  const newAccount = useNewAccount();
-  const accountsQuery = useGetAccounts();
-  const accounts = accountsQuery.data || [];
-  const deleteAccount = useBulkDeleteAccounts();
-  const isDisabled = accountsQuery.isLoading || deleteAccount.isPending;
+export default function CategoriesPage() {
+  const newCategory = useNewCategory();
+  const categoriesQuery = useGetCategories();
+  const accounts = categoriesQuery.data || [];
+  const deleteCategories = useBulkDeleteCategories();
+  const isDisabled = categoriesQuery.isLoading || deleteCategories.isPending;
 
-  if (accountsQuery.isLoading) {
+  if (categoriesQuery.isLoading) {
     return (
       <div className="mx-auto -mt-24 w-full max-w-screen-2xl pb-10">
         <Card className="border-none drop-shadow-sm">
@@ -51,8 +38,10 @@ export default function AccountsPage() {
     <div className="mx-auto -mt-24 w-full max-w-screen-2xl pb-10">
       <Card className="border-none drop-shadow-sm">
         <CardHeader className="gap-y-2 lg:flex-row lg:items-center lg:justify-between">
-          <CardTitle className="line-clamp-1 text-xl">Accounts Page</CardTitle>
-          <Button size="sm" onClick={newAccount.onOpen}>
+          <CardTitle className="line-clamp-1 text-xl">
+            Categories Page
+          </CardTitle>
+          <Button size="sm" onClick={newCategory.onOpen}>
             <Plus className="mr-2 size-4" /> Add new
           </Button>
         </CardHeader>
@@ -63,7 +52,7 @@ export default function AccountsPage() {
             filterKey="name"
             onDelete={(row) => {
               const ids = row.map((r) => r.original.id);
-              deleteAccount.mutate({ ids });
+              deleteCategories.mutate({ ids });
             }}
             disabled={isDisabled}
           />

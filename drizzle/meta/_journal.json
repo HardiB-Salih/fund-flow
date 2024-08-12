@@ -15,6 +15,20 @@
       "when": 1723404828510,
       "tag": "0001_tidy_matthew_murdock",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1723481259584,
+      "tag": "0002_gigantic_baron_strucker",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1723488847625,
+      "tag": "0003_black_skin",
+      "breakpoints": true
     }
   ]
 }
