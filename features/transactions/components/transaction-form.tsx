@@ -61,6 +61,7 @@ export default function TransactionForm({
   categoryOptions,
   onCreateCategory,
 }: TransactionFormProps) {
+  console.log(defaultValues);
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: defaultValues,

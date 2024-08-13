@@ -18,6 +18,7 @@ import { useGetCategories } from "@/features/categories/api/use-get-categories";
 import { useGetAccounts } from "@/features/accounts/api/use-get-accounts";
 import { useCreateAccount } from "@/features/accounts/api/use-create-account";
 import { useCreateCategory } from "@/features/categories/api/use-create-category";
+import { convertAmountFromMilliunit, formatCurrency } from "@/lib/utils";
 
 const formSchema = insertTransactionsSchema.omit({
   id: true,
@@ -87,7 +88,9 @@ export default function EditTransactionSheet() {
     ? {
         accountId: transactionQuery.data.accountId,
         categoryId: transactionQuery.data.categoryId,
-        amount: transactionQuery.data.amount.toString(),
+        amount: convertAmountFromMilliunit(
+          transactionQuery.data.amount,
+        ).toString(),
         date: transactionQuery.data.date
           ? new Date(transactionQuery.data.date)
           : new Date(),

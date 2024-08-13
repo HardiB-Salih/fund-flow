@@ -1,0 +1,13 @@
+Type,Product,Started Date,Completed Date,Description,Amount,Fee,Currency,State,Balance
+Deposit,Savings Account,2024-07-01 09:15:23,2024-07-01 09:15:23,Monthly Salary,5000.00,0.00,USD,Completed,5000.00
+Withdrawal,Checking Account,2024-07-05 12:30:45,2024-07-05 12:30:45,ATM Withdrawal,-200.00,3.00,USD,Completed,4797.00
+Payment,Credit Card,2024-07-10 14:45:10,2024-07-10 14:45:10,Grocery Store Purchase,-150.75,0.00,USD,Completed,4646.25
+Deposit,Savings Account,2024-07-15 08:00:00,2024-07-15 08:00:00,Freelance Payment,1200.00,0.00,USD,Completed,5846.25
+Withdrawal,Checking Account,2024-07-20 10:15:30,2024-07-20 10:15:30,Online Purchase,-75.50,0.00,USD,Completed,5770.75
+Transfer,Checking Account,2024-07-22 13:20:50,2024-07-22 13:20:50,Transfer to Savings,-1000.00,0.00,USD,Completed,4770.75
+Payment,Credit Card,2024-07-25 19:35:15,2024-07-25 19:35:15,Restaurant Bill,-85.25,0.00,USD,Completed,4685.50
+Deposit,Savings Account,2024-07-30 11:10:05,2024-07-30 11:10:05,Investment Returns,300.00,0.00,USD,Completed,4985.50
+Withdrawal,Checking Account,2024-08-02 17:25:40,2024-08-02 17:25:40,Utility Bill Payment,-120.00,0.00,USD,Completed,4865.50
+Payment,Credit Card,2024-08-05 09:05:12,2024-08-05 09:05:12,Online Subscription,-12.99,0.00,USD,Completed,4852.51
+Deposit,Savings Account,2024-08-10 15:50:30,2024-08-10 15:50:30,Bonus Payment,1500.00,0.00,USD,Completed,6352.51
+Withdrawal,Checking Account,2024-08-12 13:45:22,2024-08-12 13:45:22,Cash Withdrawal,-300.00,3.00,USD,Completed,6049.51
