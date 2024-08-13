@@ -4,34 +4,30 @@ import { client } from "@/lib/hono";
 import { toast } from "sonner";
 
 type ResponseType = InferResponseType<
-  (typeof client.api.categories)[":id"]["$patch"]
+  (typeof client.api.transactions)["bulk-delete"]["$post"]
 >;
 type RequestType = InferRequestType<
-  (typeof client.api.categories)[":id"]["$patch"]
+  (typeof client.api.transactions)["bulk-delete"]["$post"]
 >["json"];
 
-export function useEditcategory(id?: string) {
+export function useBulkDeleteTransactions() {
   const queryClient = useQueryClient();
   const mutation = useMutation<ResponseType, Error, RequestType>({
     mutationFn: async (json) => {
-      const response = await client.api.categories[":id"]["$patch"]({
-        param: { id },
+      const response = await client.api.transactions["bulk-delete"]["$post"]({
         json,
       });
       return await response.json();
     },
 
     onSuccess: () => {
-      toast.success("Category updated");
-      queryClient.invalidateQueries({ queryKey: ["category", { id }] });
-      queryClient.invalidateQueries({ queryKey: ["categories"] });
+      toast.success("Transactions Delete");
       queryClient.invalidateQueries({ queryKey: ["transactions"] });
-
-      // TODO: Invalidate summury
+      //TODO: also invalidate sumary
     },
 
     onError: () => {
-      toast.error("Failed to edit category");
+      toast.error("Failed to delete transactions");
     },
   });
 

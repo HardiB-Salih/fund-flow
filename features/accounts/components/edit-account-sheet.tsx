@@ -71,7 +71,7 @@ export default function EditAccountSheet() {
           </SheetHeader>
 
           {isLoading ? (
-            <div className="absolute inset-0 items-center justify-center">
+            <div className="relative flex h-full w-full items-center justify-center">
               <Loader2 className="size-4 animate-spin text-muted-foreground" />
             </div>
           ) : (

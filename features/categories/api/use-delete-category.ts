@@ -21,7 +21,9 @@ export function useDeleteCategory(id?: string) {
       toast.success("category delete");
       queryClient.invalidateQueries({ queryKey: ["category", { id }] });
       queryClient.invalidateQueries({ queryKey: ["categories"] });
-      // TODO: Invalidate summury and transactions
+      queryClient.invalidateQueries({ queryKey: ["transactions"] });
+
+      // TODO: Invalidate summury
     },
 
     onError: () => {

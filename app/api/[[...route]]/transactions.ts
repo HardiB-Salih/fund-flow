@@ -12,7 +12,6 @@ import { zValidator } from "@hono/zod-validator";
 import { createId } from "@paralleldrive/cuid2";
 import { z } from "zod";
 import { parse, subDays } from "date-fns";
-import { date } from "drizzle-orm/mysql-core";
 
 const app = new Hono()
   .get(
@@ -57,7 +56,6 @@ const app = new Hono()
         })
         .from(transactions)
         .innerJoin(accounts, eq(transactions.accountId, accounts.id))
-        //? The category is optional that why we use left join
         .leftJoin(categories, eq(transactions.categoryId, categories.id))
         .where(
           and(
@@ -68,6 +66,8 @@ const app = new Hono()
           ),
         )
         .orderBy(desc(transactions.date));
+
+      return c.json({ data });
     },
   )
   .get(
@@ -180,6 +180,38 @@ const app = new Hono()
         .returning({
           id: transactions.id,
         });
+      return c.json({ data });
+    },
+  )
+  .post(
+    "/bulk-create",
+    clerkMiddleware(),
+    zValidator(
+      "json",
+      z.array(
+        insertTransactionsSchema.omit({
+          id: true,
+        }),
+      ),
+    ),
+    async (c) => {
+      const auth = getAuth(c);
+      const values = c.req.valid("json");
+
+      if (!auth?.userId) {
+        return c.json({ error: "Unauthorized" }, 401);
+      }
+
+      const data = await db
+        .insert(transactions)
+        .values(
+          values.map((value) => ({
+            id: createId(),
+            ...value,
+          })),
+        )
+        .returning();
+
       return c.json({ data });
     },
   )
