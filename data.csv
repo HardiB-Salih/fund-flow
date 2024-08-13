@@ -1,13 +1,32 @@
 Type,Product,Started Date,Completed Date,Description,Amount,Fee,Currency,State,Balance
-Deposit,Savings Account,2024-07-01 09:15:23,2024-07-01 09:15:23,Monthly Salary,5000.00,0.00,USD,Completed,5000.00
-Withdrawal,Checking Account,2024-07-05 12:30:45,2024-07-05 12:30:45,ATM Withdrawal,-200.00,3.00,USD,Completed,4797.00
-Payment,Credit Card,2024-07-10 14:45:10,2024-07-10 14:45:10,Grocery Store Purchase,-150.75,0.00,USD,Completed,4646.25
-Deposit,Savings Account,2024-07-15 08:00:00,2024-07-15 08:00:00,Freelance Payment,1200.00,0.00,USD,Completed,5846.25
-Withdrawal,Checking Account,2024-07-20 10:15:30,2024-07-20 10:15:30,Online Purchase,-75.50,0.00,USD,Completed,5770.75
-Transfer,Checking Account,2024-07-22 13:20:50,2024-07-22 13:20:50,Transfer to Savings,-1000.00,0.00,USD,Completed,4770.75
-Payment,Credit Card,2024-07-25 19:35:15,2024-07-25 19:35:15,Restaurant Bill,-85.25,0.00,USD,Completed,4685.50
-Deposit,Savings Account,2024-07-30 11:10:05,2024-07-30 11:10:05,Investment Returns,300.00,0.00,USD,Completed,4985.50
-Withdrawal,Checking Account,2024-08-02 17:25:40,2024-08-02 17:25:40,Utility Bill Payment,-120.00,0.00,USD,Completed,4865.50
-Payment,Credit Card,2024-08-05 09:05:12,2024-08-05 09:05:12,Online Subscription,-12.99,0.00,USD,Completed,4852.51
-Deposit,Savings Account,2024-08-10 15:50:30,2024-08-10 15:50:30,Bonus Payment,1500.00,0.00,USD,Completed,6352.51
-Withdrawal,Checking Account,2024-08-12 13:45:22,2024-08-12 13:45:22,Cash Withdrawal,-300.00,3.00,USD,Completed,6049.51
+Credit,Subscription,2024-07-01 08:30:45,2024-07-01 09:00:15,Monthly subscription payment,100.00,2.50,USD,Completed,1200.00
+Debit,Withdrawal,2024-07-02 10:15:30,2024-07-02 10:45:50,ATM Withdrawal,-200.00,3.00,USD,Completed,1000.00
+Credit,Refund,2024-07-03 12:00:00,2024-07-03 12:30:20,Refund from retailer,50.00,0.00,USD,Completed,1050.00
+Debit,Purchase,2024-07-04 14:45:10,2024-07-04 15:10:35,Online shopping purchase,-150.00,1.50,USD,Completed,900.00
+Credit,Salary,2024-07-05 18:00:00,2024-07-05 18:30:45,Monthly salary deposit,2000.00,0.00,USD,Completed,2900.00
+Debit,Transfer,2024-07-06 19:45:30,2024-07-06 20:15:15,Transfer to savings,-500.00,0.00,USD,Completed,2400.00
+Credit,Investment,2024-07-07 08:20:30,2024-07-07 08:50:10,Dividend payment,300.00,0.00,USD,Completed,2700.00
+Debit,Bill Payment,2024-07-08 11:00:20,2024-07-08 11:25:45,Utility bill payment,-100.00,1.00,USD,Completed,2600.00
+Credit,Bonus,2024-07-09 13:10:55,2024-07-09 13:40:35,Performance bonus,500.00,0.00,USD,Completed,3100.00
+Debit,Purchase,2024-07-10 16:30:25,2024-07-10 17:00:45,Grocery shopping,-250.00,2.00,USD,Completed,2850.00
+Credit,Subscription,2024-07-11 08:30:45,2024-07-11 09:00:15,Monthly subscription payment,100.00,2.50,USD,Completed,2950.00
+Debit,Withdrawal,2024-07-12 10:15:30,2024-07-12 10:45:50,ATM Withdrawal,-200.00,3.00,USD,Completed,2750.00
+Credit,Refund,2024-07-13 12:00:00,2024-07-13 12:30:20,Refund from retailer,50.00,0.00,USD,Completed,2800.00
+Debit,Purchase,2024-07-14 14:45:10,2024-07-14 15:10:35,Online shopping purchase,-150.00,1.50,USD,Completed,2650.00
+Credit,Salary,2024-07-15 18:00:00,2024-07-15 18:30:45,Monthly salary deposit,2000.00,0.00,USD,Completed,4650.00
+Debit,Transfer,2024-07-16 19:45:30,2024-07-16 20:15:15,Transfer to savings,-500.00,0.00,USD,Completed,4150.00
+Credit,Investment,2024-07-17 08:20:30,2024-07-17 08:50:10,Dividend payment,300.00,0.00,USD,Completed,4450.00
+Debit,Bill Payment,2024-07-18 11:00:20,2024-07-18 11:25:45,Utility bill payment,-100.00,1.00,USD,Completed,4350.00
+Credit,Bonus,2024-07-19 13:10:55,2024-07-19 13:40:35,Performance bonus,500.00,0.00,USD,Completed,4850.00
+Debit,Purchase,2024-07-20 16:30:25,2024-07-20 17:00:45,Grocery shopping,-250.00,2.00,USD,Completed,4600.00
+Credit,Subscription,2024-07-21 08:30:45,2024-07-21 09:00:15,Monthly subscription payment,100.00,2.50,USD,Completed,4700.00
+Debit,Withdrawal,2024-07-22 10:15:30,2024-07-22 10:45:50,ATM Withdrawal,-200.00,3.00,USD,Completed,4500.00
+Credit,Refund,2024-07-23 12:00:00,2024-07-23 12:30:20,Refund from retailer,50.00,0.00,USD,Completed,4550.00
+Debit,Purchase,2024-07-24 14:45:10,2024-07-24 15:10:35,Online shopping purchase,-150.00,1.50,USD,Completed,4400.00
+Credit,Salary,2024-07-25 18:00:00,2024-07-25 18:30:45,Monthly salary deposit,2000.00,0.00,USD,Completed,6400.00
+Debit,Transfer,2024-07-26 19:45:30,2024-07-26 20:15:15,Transfer to savings,-500.00,0.00,USD,Completed,5900.00
+Credit,Investment,2024-07-27 08:20:30,2024-07-27 08:50:10,Dividend payment,300.00,0.00,USD,Completed,6200.00
+Debit,Bill Payment,2024-07-28 11:00:20,2024-07-28 11:25:45,Utility bill payment,-100.00,1.00,USD,Completed,6100.00
+Credit,Bonus,2024-07-29 13:10:55,2024-07-29 13:40:35,Performance bonus,500.00,0.00,USD,Completed,6600.00
+Debit,Purchase,2024-07-30 16:30:25,2024-07-30 17:00:45,Grocery shopping,-250.00,2.00,USD,Completed,6350.00
+Credit,Subscription,2024-07-31 08:30:45,2024-07-31 09:00:15,Monthly subscription payment,100.00,2.50,USD,Completed,6450.00

@@ -88,9 +88,7 @@ export default function EditTransactionSheet() {
     ? {
         accountId: transactionQuery.data.accountId,
         categoryId: transactionQuery.data.categoryId,
-        amount: convertAmountFromMilliunit(
-          transactionQuery.data.amount,
-        ).toString(),
+        amount: transactionQuery.data.amount.toString(),
         date: transactionQuery.data.date
           ? new Date(transactionQuery.data.date)
           : new Date(),

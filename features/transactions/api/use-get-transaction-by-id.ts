@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { client } from "@/lib/hono";
+import { convertAmountFromMilliunit } from "@/lib/utils";
 
 export const useGetTransactionById = (id?: string) => {
   const query = useQuery({
@@ -14,7 +15,10 @@ export const useGetTransactionById = (id?: string) => {
         throw new Error("Faild to fetch transaction by id");
       }
       const { data } = await response.json();
-      return data;
+      return {
+        ...data,
+        amount: convertAmountFromMilliunit(data.amount),
+      };
     },
   });
 

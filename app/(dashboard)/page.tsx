@@ -1,17 +1,16 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+import DataCharts from "@/components/data-charts";
+import DataGrid from "@/components/data-grid";
 import { useNewAccount } from "@/features/accounts/hooks/use-new-account";
-import { UserButton } from "@clerk/nextjs";
-import Image from "next/image";
 
-export default function Home() {
+export default function DashboardPage() {
   const { onOpen } = useNewAccount();
 
   return (
-    <main>
-      <Button onClick={onOpen}>Click me</Button>
-      <UserButton />
-    </main>
+    <div className="mx-auto -mt-24 w-full max-w-screen-2xl pb-10">
+      <DataGrid />
+      <DataCharts />
+    </div>
   );
 }
