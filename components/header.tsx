@@ -3,6 +3,7 @@ import HeaderLogo from "./header-logo";
 import Navigation from "./navigation";
 import { Loader2 } from "lucide-react";
 import WelcomeMsg from "./welcome-msg";
+import Filters from "./ filters";
 
 interface HeaderProps {
   // Define your props here
@@ -25,6 +26,7 @@ export default function Header({}: HeaderProps) {
           </ClerkLoading>
         </div>
         <WelcomeMsg />
+        <Filters />
       </div>
     </header>
   );
