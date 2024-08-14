@@ -23,7 +23,7 @@ export function useBulkDeleteTransactions() {
     onSuccess: () => {
       toast.success("Transactions Delete");
       queryClient.invalidateQueries({ queryKey: ["transactions"] });
-      //TODO: also invalidate sumary
+      queryClient.invalidateQueries({ queryKey: ["summary"] });
     },
 
     onError: () => {
